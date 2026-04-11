@@ -14,3 +14,10 @@ git checkout -b name这个指令可以创建分支；分支还有一个很好的
 
 报错：如果创建时勾选了ADD README那么仓库就会多出一个文档，但是本地却没有就会冲突，所以需要先把仓库里的文档拉下来到本地，再重新传输；使用
 git pull origin main --rebase
+
+我对git bash使用了：git config --global core.quotepath false
+--global：代表全局生效。只要敲这一次，以后你电脑上的所有 Git 仓库遇到中文名都不会再变成数字了。
+
+core.quotepath false：意思是关闭路径转义。
+
+执行完这行命令后，你再次输入 git status，就能看到正常的中文文件名了！
