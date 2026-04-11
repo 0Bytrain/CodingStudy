@@ -1,0 +1,13 @@
+1、在keil中清除编译
+2、在根目录下新建一个.gitignore文件
+3、让AI帮忙生成一个.gitignore文件，然后用记事本打开复制粘贴上去
+4、在根目录下右键选择 Git Bash here
+5、连续三个指令：git init 使仓库初始化；git add . 添加所有文件 git status 检查是否过滤成功（看看是否还有.o文件.obj之类的；其中红色文件是修改了但还没保存到 Git 的文件，绿色文件是已经准备好要提交的文件。）
+6、git commit -m "first commit"直接提交后面的双引号可以随便写东西
+7、git remote add origin https://github.com/你的用户名/仓库名.git远程绑定仓库，地址换成自己的
+8、git branch -M main和git push -u origin "main"
+之后想要更新代码只要 git status然后git add . （某文件位置，如git add Core/Src/main.c）再git commit -m "功能更新"最后git push就可以了。如果更改多个文件就一个个上传写“日志”
+
+进阶：
+一般都会先创建一个分支，平常都是在分支上写代码，等到调试完毕发现没问题再在github官网上合并。（创建分支后github上会有一个Compare&pull request）；
+git checkout -b name这个指令可以创建分支；分支还有一个很好的功能是可以随时切换；平常在根目录打开git bash后输入git checkout  ... 然后就可以切换至某个分支甚至以前的历史版本（输入哈希值就可以）；
