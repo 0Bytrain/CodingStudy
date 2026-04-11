@@ -11,3 +11,6 @@
 进阶：
 一般都会先创建一个分支，平常都是在分支上写代码，等到调试完毕发现没问题再在github官网上合并。（创建分支后github上会有一个Compare&pull request）；
 git checkout -b name这个指令可以创建分支；分支还有一个很好的功能是可以随时切换；平常在根目录打开git bash后输入git checkout  ... 然后就可以切换至某个分支甚至以前的历史版本（输入哈希值就可以）；
+
+报错：如果创建时勾选了ADD README那么仓库就会多出一个文档，但是本地却没有就会冲突，所以需要先把仓库里的文档拉下来到本地，再重新传输；使用
+git pull origin main --rebase
