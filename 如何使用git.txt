@@ -7,6 +7,7 @@
 7、git remote add origin https://github.com/你的用户名/仓库名.git远程绑定仓库，地址换成自己的
 8、git branch -M main和git push -u origin "main"
 之后想要更新代码只要 git status然后git add . （某文件位置，如git add Core/Src/main.c）再git commit -m "功能更新"最后git push就可以了。如果更改多个文件就一个个上传写“日志”
+注意：如果可以以后不要无脑用git add .因为这样提交写评论时会把所有文件的评论改了，我们只git add修改的文件然后提交评论
 
 
 
@@ -20,13 +21,9 @@ git checkout -b name这个指令可以创建分支；然后推送云端：git pu
 除了用checkout可以看到以前历史代码外，还要会用git restore .这个可以把你的代码恢复成上一次提交的状态（不要用pull），如果你已经提交了，那么就使用（git reset --hard 历史哈希值）
 这可以把这个值之后提交的代码直接粉碎，回到当前历史的代码。
 
-若要在一个仓库上传一些毫无关联的小项目则可以通过下面几个指令：
-1、创建一个没有任何历史记录的全新分支（假设这个新“小仓库”叫 project-b）：git checkout --orphan project-b；
-2、此时本地工作区可能还会显示原来分支的文件。你需要清空它们以获得一个干净的环境（放心，这只会清空当前分支的工作区，不会删除你原本分支里的文件）：git rm -rf .
-3、现在你的目录完全干净了。你可以把属于这个小仓库的新文件放进来。
-git add .
-git commit -m "Initial commit for project B"
-git push origin project-b
+若要在一个仓库上传一些毫无关联的小项目只需要在大文件夹里面创建两个独立的小文件夹然后在大文件夹作为根目录就可以，切记.gitignore要把所有项目想要忽略的全部包含进去
+
+
 
 报错：
 如果创建时勾选了ADD README那么仓库就会多出一个文档，但是本地却没有就会冲突，所以需要先把仓库里的文档拉下来到本地，再重新传输；使用
